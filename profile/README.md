@@ -82,13 +82,13 @@ https://github.com/cmdruid/nostr-p2p
 
 **Bifrost**  
 Core library for implementing the FROSTR signing protocol.  
-https://github.com/frost-org/bifrost
+https://github.com/frostr-org/bifrost
 
 **Igloo**  
 Electron-based key-management app and remote signing server.  
-https://github.com/frost-org/igloo
+https://github.com/frostr-org/igloo
 
 **Frost2x**  
 Web extension signing device (fork of nos2x).  
-https://github.com/frost-org/frost2x
+https://github.com/frostr-org/frost2x
 
