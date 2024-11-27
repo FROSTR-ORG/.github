@@ -77,7 +77,7 @@ Multi-platform Typescript FROST Library
 https://github.com/cmdruid/frost
 
 **Nostr-P2P**  
-Nostr client SDK for creating peer-to-peer protocols.
+Nostr client SDK for creating peer-to-peer protocols.  
 https://github.com/cmdruid/nostr-p2p
 
 **Bifrost**  
