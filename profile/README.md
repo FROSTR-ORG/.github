@@ -22,7 +22,7 @@ This project was hacked together for entry in the TABCONF 2024 hack-a-thon event
 
 ## Dependencies
 
-`Frost      :` Core cryptography library that implements FROST primitives. 
+`Frost      :` Core cryptography library that implements FROST primitives.  
 `Nostr-P2P  :` Peer-to-peer client that communicates over nostr.
 
 ## TODO:
