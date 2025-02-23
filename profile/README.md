@@ -1,8 +1,8 @@
 # FROSTR
 
-Simple t-of-n remote signing and key rotation protocol for nostr, using the powers of FROST.
+Simple t-of-n remote signing and key management protocol for nostr, using the powers of FROST.
 
-This project was hacked together for entry in the TABCONF 2024 hack-a-thon event.
+This project was originally hacked together for entry in the TABCONF 2024 hack-a-thon event.
 
 ## Key Features
 
@@ -16,14 +16,20 @@ This project was hacked together for entry in the TABCONF 2024 hack-a-thon event
 
 ## Architecture
 
-`Bifrost    :` FROSTR cryptography and protocol library.  
+`Bifrost    :` Reference p2p client and implementation of FROSTR protocol.
+
+## Clients
+
 `Igloo      :` Desktop key management app & signing device.  
 `Frost2x    :` Browser signing extension (forked from nos2x).
+`Mjolnir    :` (TBA) Mobile signing device using NIP-46.
+`Permafrost :` Reference node application for server environments. 
+`Heimdall   :` API gateway and signer for server-less environments.
 
 ## Dependencies
 
 `Frost      :` Core cryptography library that implements FROST primitives.  
-`Nostr-P2P  :` Peer-to-peer client that communicates over nostr.
+`Nostr-P2P  :` Reference node and SDK for communicating peer-to-peer over nostr.
 
 ## TODO:
 
@@ -32,9 +38,10 @@ There are a few things that need to be finished before a version 1.0 release:
 * ~~Finish refactoring Bifrost library.~~
 * ~~Add a project kanban board for tracking updates.~~
 * ~~Implement ECDH and signature protocol negotiation.~~
-* Add demo examples and test vectors to Bifrost.
-* Finish updating Igloo (once bifrost is ready).
-* Finish updating frost2x (once bifrost is ready).
+* ~~Add demo examples and test vectors to Bifrost.~~
+* ~~Launch alpha implementation of frost2x and igloo.~~
+* Finish updating Igloo for release.
+* Finish updating frost2x for release.
 
 The code cleanup is needed in order to graduate this from a hackathon project to a real application.
 
@@ -44,11 +51,13 @@ The protocol uses FROST in order to coordinate the signing of a message between 
 
 * Website or application makes a request to the user's signing device (to sign a note).
 
-* User's device signs the note, then delivers a partial signature to the remote signing device(s).
+* User's device makes a signed request to the remote signing device(s).
 
-* Each remote device verifies the note and signature, then responds with their own partial signature.
+* Each remote device verifies the request, then responds with a partial signature.
 
-* User's device verifies each partial signature, combines them, and returns the complete signature to the website / app.
+* User's device verifies each partial signature, then adds their own.
+
+* The signatures are combined, and the complete signature is returned to the website / app.
 
 ## Setting up your Devices
 
@@ -58,17 +67,13 @@ The protocol uses FROST in order to coordinate the signing of a message between 
 
 * Import a share into each of your other devices.
 
-* Cold-store the remaining shares for use in recovery.
+* (optional) store the remaining shares for use in recovery.
 
 ## Rotating your Shares
 
-* Collect together enough shares to meet your share threshold.
+* Re-run the import process using your secret key to generate new shares.
 
-* Import the shares into Igloo's recovery page, then click "rotate" to produce a new set of shares.
-
-* Import the new shares into each of your signing devices (including the remote signing server).
-
-* Destroy any existing recovery shares, and replace them with your new shares.
+* Destroy any existing shares, and replace them with your new shares.
 
 ## Resources
 
