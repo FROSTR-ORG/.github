@@ -16,20 +16,20 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 
 ## Architecture
 
-`Bifrost    :` Reference p2p client and implementation of FROSTR protocol.
+### Bifrost: Reference p2p client and implementation of FROSTR protocol.
 
 ## Clients
 
-`Igloo      :` Desktop key management app & signing device.  
-`Frost2x    :` Browser signing extension (forked from nos2x).  
-`Frostbite  :` (TBA) Mobile signing device using NIP-46.  
-`Permafrost :` Reference node application for server environments.  
-`Heimdall   :` API gateway and signer for server-less environments.  
+### Igloo: Desktop key management app & signing device.  
+### Frost2x: Browser signing extension (forked from nos2x).  
+### Frostbite: (TBA) Mobile signing device using NIP-46.  
+### Permafrost: Reference node application for server environments.  
+### Heimdall: API gateway and signer for server-less environments.  
 
 ## Dependencies
 
-`Frost      :` Core cryptography library that implements FROST primitives.  
-`Nostr-P2P  :` Reference node and SDK for communicating peer-to-peer over nostr.
+### Frost: Core cryptography library that implements FROST primitives.  
+### Nostr-P2P: Reference node and SDK for communicating peer-to-peer over nostr.
 
 ## TODO:
 
