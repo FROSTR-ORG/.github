@@ -16,7 +16,7 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 
 ## Architecture
 
-### Bifrost: Reference p2p client and implementation of FROSTR protocol.
+**Bifrost**: Reference p2p client and implementation of FROSTR protocol.
 
 ## Clients
 
