@@ -28,8 +28,8 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 
 ## Dependencies
 
-### Frost: Core cryptography library that implements FROST primitives.  
-### Nostr-P2P: Reference node and SDK for communicating peer-to-peer over nostr.
+**Frost:** Core cryptography library that implements FROST primitives.  
+**Nostr-P2P:** Reference node and SDK for communicating peer-to-peer over nostr.
 
 ## TODO:
 
