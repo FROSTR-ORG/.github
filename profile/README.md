@@ -5,22 +5,17 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 ## Features
 
 * Break up an existing secret key or **nsec** into parts, or "shares".
-
 * Create any t-of-n multi-signature setup using your shares and signing devices.
-
 * If one of your shares is compromised, your secret key is still safe.
-
 * Key rotation is simple: Destroy existing shares, replace with a new set.
-
 * Your **npub** does not change. Bring your existing identity to frostr.
-
 * Your signatures do not change. Nobody even knows you are using a multi-sig.
 
 ## Core Architecture
 
-**Bifrost**  
-Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic is end-to-end encrypted between nodes.  
-https://github.com/FROSTR-ORG/bifrost  
+* **Bifrost**  
+  Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic is end-to-end encrypted between nodes.  
+  https://github.com/FROSTR-ORG/bifrost  
 
 ## Signing Clients
 
