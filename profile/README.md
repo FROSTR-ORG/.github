@@ -18,21 +18,26 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 
 * Your signatures do not change. Nobody even knows you are using a multi-sig.
 
-## Architecture
+## Core Architecture
 
-**Bifrost:** Reference p2p client and implementation of FROSTR protocol. Each node custodies a share. Uses the nostr network to communicate and coordinate signing. All traffic is end-to-end encrypted between nodes.
+**Bifrost:** Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic is end-to-end encrypted between nodes.  [github link](https://github.com/FROSTR-ORG/bifrost)  
 
 ## Signing Clients
 
-**Igloo:** Desktop-based key management and signing device. Options to import an existing `nsec`, or generate a new one. Allows you to manage and rotate shares, plus recover your `nsec` using shares. Can be used online for remote signing, or off-line for key management only.  
+**Igloo:**  
+Desktop-based key management and signing device. Options to import an existing `nsec`, or generate a new one. Allows you to manage and rotate shares, plus recover your `nsec` using shares. Can be used online for remote signing, or offline for key management only.  [github link](https://github.com/FROSTR-ORG/igloo)   
 
-**Frost2x:** Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon!  
+**Frost2x**  
+Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon! [github link](https://github.com/FROSTR-ORG/frost2x)  
 
-**Permafrost:** Server-based signing device and personal ephemeral relay. Includes a NIP-07 based web portal for managing your server. Options to run as a node service (using bun) or inside a docker environment. WIP.  
+**Permafrost**  
+Server-based signing device and personal ephemeral relay. Includes a NIP-07 based web portal for managing your server. Options to run as a node service (using bun) or inside a docker environment. WIP. [github link](https://github.com/FROSTR-ORG/permafrost)  
 
-**Frostbite:** (TBA) Mobile signing device and wallet, using NIP-46 remote signing.  
+**Frostbite**  
+(TBA) Mobile signing device and wallet, using NIP-46 remote signing.  
 
-**Heimdall:** (TBA) Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
+**Heimdall**  
+(TBA) Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
 
 ## How it Works
 
@@ -52,9 +57,9 @@ Nostr apps and websites can use existing protocols (NIP-07 and NIP-46) to intera
 
 If you are new to FROSTR, the best way to get started is by downloading `Igloo` for your desktop of choice. Generate a new `nsec` (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using `frost2x` for browser-based signing (using NIP-07). The steps are as follows:
 
-* Download and run the [Igloo]() desktop app from github, for your platform of choice.
-* 
-* Download the [frost2x]() extension from github, or (soon) the chrome web store. 
+* Download and run the [Igloo](https://github.com/FROSTR-ORG/igloo/releases) desktop app from github, for your platform of choice.
+
+* Download the [frost2x](https://github.com/FROSTR-ORG/frost2x/releases) extension from github, or (soon) the chrome web store. 
   
 * Use Igloo to generate a new `nsec` and 2/3 multi-signature setup (with 3 shares).
 
