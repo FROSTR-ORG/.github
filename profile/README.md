@@ -52,11 +52,12 @@ If you are new to FROSTR, the best way to get started is by downloading **Igloo*
 * Download and install the [frost2x extension](https://github.com/FROSTR-ORG/frost2x/releases) from github, or (soon) the chrome web store. 
 * Use Igloo to generate a new **nsec** and 2/3 multi-signature setup (with 3 shares).
 * Load the first share into Igloo, configure your relays, and start the signing server.
-* Import the second share (along with **bfgroup**) into the **frost2x** extension.
+* Load the second share (along with **bfgroup**) into the **frost2x** extension.
 * (optional) store the last share in a safe place (for use in recovery).
-* (note) make sure **frost2x** is using the same relays as **igloo**.
 
 Once **igloo** and **frost2x** are configured, visit any NIP-07 enabled nostr website as usual. The **frost2x** extension will reach out and connect to **igloo** automatically. You should not notice any difference logging in and using nostr clients.
+
+> Note: make sure **frost2x** and **igloo** are configured to use the same relays.
 
 ## Rotating Shares
 
