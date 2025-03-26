@@ -19,34 +19,31 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 
 ## Signing Clients
 
-**Igloo**  
-Desktop-based key management and signing device. Options to import an existing **nsec**, or generate a new one. Allows you to manage and rotate shares, plus recover your **nsec** using shares. Can be used online for remote signing, or offline for key management only.  
-https://github.com/FROSTR-ORG/igloo  
+  **Igloo**  
+  Desktop-based key management and signing device. Options to import an existing **nsec**, or generate a new one. Allows you to manage and rotate shares, plus recover your **nsec** using shares. Can be used online for remote signing, or offline for key management only.  
+  https://github.com/FROSTR-ORG/igloo  
 
-**Frost2x**  
-Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon!  
-https://github.com/FROSTR-ORG/frost2x  
+  **Frost2x**  
+  Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon!  
+  https://github.com/FROSTR-ORG/frost2x  
 
-**Permafrost**  
-Server-based signing device and personal ephemeral relay. Includes a NIP-07 based web portal for managing your server. Options to run as a node service (using bun) or inside a docker environment. WIP.  
-https://github.com/FROSTR-ORG/permafrost  
+  **Permafrost**  
+  Server-based signing device and personal ephemeral relay. Includes a NIP-07 based web portal for managing your server. Options to run as a node service (using bun) or inside a docker environment. WIP.  
+  https://github.com/FROSTR-ORG/permafrost  
 
-**Frostbite**  
-(TBA) Mobile signing device and wallet, using NIP-46 remote signing.  
+  **Frostbite**  
+  (TBA) Mobile signing device and wallet, using NIP-46 remote signing.  
 
-**Heimdall**  
-(TBA) Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
+  **Heimdall**  
+  (TBA) Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
 
 ## How it Works
 
 The protocol uses Shamir Secret Sharing to break up your nsec into "shares", and a hyper-optimized version of FROST to coordinate signing of messages. Each FROSTR signing client contains a **bifrost** node, and can participate in signing rounds with other nodes. Nodes communicate over the nostr network, and all traffic is end-to-end encrypted. The flow of the protocol is relatively simple:
 
 * Nostr application makes a request to the user's FROSTR signing device.
-
 * FROSTR device verifies the request, then makes a request for a signature to other nodes (over nostr).
-
 * Other devices / nodes verify the request, then respond with a partial signature.
-
 * User's FROSTR device collects the responses, combines the partial signatures, and returns a completed signature.
 
 Nostr apps and websites can use existing protocols (NIP-07 and NIP-46) to interact with FROSTR signing devices. Nothing is changed about the user's **nsec**, **npub**, or signatures.
@@ -56,17 +53,11 @@ Nostr apps and websites can use existing protocols (NIP-07 and NIP-46) to intera
 If you are new to FROSTR, the best way to get started is by downloading **Igloo** for your desktop of choice. Generate a new **nsec** (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using **frost2x** for browser-based signing (using NIP-07). The steps are as follows:
 
 * Download and run the [Igloo](https://github.com/FROSTR-ORG/igloo/releases) desktop app from github, for your platform of choice.
-
 * Download the [frost2x](https://github.com/FROSTR-ORG/frost2x/releases) extension from github, or (soon) the chrome web store. 
-  
 * Use Igloo to generate a new **nsec** and 2/3 multi-signature setup (with 3 shares).
-
 * Load the first share into Igloo, configure your relays, and start the signing server.
-
 * Import the second share (along with **bfgroup**) into the **frost2x** extension.
-
 * (optional) store the last share in a safe place (for use in recovery).
-
 * (note) make sure **frost2x** is using the same relays as **igloo**.
 
 Once **igloo** and **frost2x** are configured, visit any NIP-07 enabled nostr website as usual. The **frost2x** extension will reach out and connect to **igloo** automatically. You should not notice any difference logging in and using nostr clients.
@@ -78,7 +69,6 @@ If one of your shares is lost or compropmised, you can abandon it by replacing y
 The rotation process is very simple:
 
 * Re-import your **nsec** into **igloo** and generate a new set of shares.
-
 * Destroy any existing shares in **igloo** and **frost2x**. Replace them with your new shares.
 
 ## Questions / Reporting Issues
