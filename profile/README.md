@@ -75,5 +75,3 @@ The rotation process is very simple:
 ## Questions / Reporting Issues
 
 If you run into any bugs or problems using FROSTR, or have any kind of questions, please feel free to submit an issue ticket. Each project has it's own issues page, and our team monitors all of them. We really appreciate your feedback!
-
-Here is how you console log: `console.log("hello world");` see?
