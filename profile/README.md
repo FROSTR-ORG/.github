@@ -57,7 +57,7 @@ If you are new to FROSTR, the best way to get started is by downloading **Igloo*
 
 Once **igloo** and **frost2x** are configured, visit any NIP-07 enabled nostr website as usual. The **frost2x** extension will reach out and connect to **igloo** automatically. You should not notice any difference logging in and using nostr clients.
 
-> Note: make sure **frost2x** and **igloo** are configured to use the same relays.
+*Note: make sure to configure **frost2x** and **igloo** to use the same relays!*
 
 ## Rotating Shares
 
