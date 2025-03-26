@@ -24,8 +24,9 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 
 ## Signing Clients
 
-**Igloo:**  
-Desktop-based key management and signing device. Options to import an existing `nsec`, or generate a new one. Allows you to manage and rotate shares, plus recover your `nsec` using shares. Can be used online for remote signing, or offline for key management only.  [github link](https://github.com/FROSTR-ORG/igloo)   
+[**Igloo**](https://github.com/FROSTR-ORG/igloo)  
+  
+Desktop-based key management and signing device. Options to import an existing `nsec`, or generate a new one. Allows you to manage and rotate shares, plus recover your `nsec` using shares. Can be used online for remote signing, or offline for key management only.  
 
 **Frost2x**  
 Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon! [github link](https://github.com/FROSTR-ORG/frost2x)  
