@@ -1,11 +1,11 @@
-Simple t-of-n remote signing and key management protocol for nostr, using the powers of FROST.
+Simple k-of-n remote signing and key management protocol for nostr, using the powers of FROST.
 
-This project was originally hacked together for entry in the TABCONF 2024 hack-a-thon event.
+This project was originally hacked together for the TABCONF 2024 hackathon competition.
 
 ## Features
 
-* Break up an existing secret key or **nsec** into parts, or "shares".
-* Create any t-of-n multi-signature setup using your shares and signing devices.
+* Break up an existing secret key or **nsec** into fragments, called "shares".
+* Create any kind of multi-signature setup using your shares and signing devices.
 * If one of your shares is compromised, your secret key is still safe.
 * Key rotation is simple: Destroy existing shares, replace with a new set.
 * Your **npub** does not change. Bring your existing identity to frostr.
@@ -14,7 +14,7 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 ## Core Architecture
 
 * **Bifrost** [[link]](https://github.com/FROSTR-ORG/bifrost)  
-  Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic is end-to-end encrypted between nodes.  
+  Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic between nodes is end-to-end encrypted.  
 
 ## Signing Clients
 
@@ -35,18 +35,18 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 
 ## How it Works
 
-The protocol uses Shamir Secret Sharing to break up your nsec into "shares", and a hyper-optimized version of FROST to coordinate signing of messages. Each FROSTR signing client contains a **bifrost** node, and can participate in signing rounds with other nodes. Nodes communicate over the nostr network, and all traffic is end-to-end encrypted. The flow of the protocol is relatively simple:
+The protocol uses Shamir Secret Sharing to break up your nsec into "shares", and a hyper-optimized version of FROST to coordinate signing of messages. Each FROSTR signing client contains a **bifrost** node, and can participate in signing rounds with other nodes. Nodes communicate over the nostr network using end-to-end encrypted notes. The flow of the protocol is relatively simple:
 
 * Nostr application makes a request to the user's FROSTR signing device.
-* FROSTR device verifies the request, then makes a request for a signature to other nodes (over nostr).
-* Other devices / nodes verify the request, then respond with a partial signature.
-* User's FROSTR device collects the responses, combines the partial signatures, and returns a completed signature.
+* Signing device verifies the request, then forwards it to other FROSTR nodes.
+* Other nodes verify the request, then respond with a partial signature.
+* Signing device collects the responses, then returns a completed signature.
 
-Nostr apps and websites can use existing protocols (NIP-07 and NIP-46) to interact with FROSTR signing devices. Nothing is changed about the user's **nsec**, **npub**, or signatures.
+Nostr apps can use existing protocols (NIP-07 and NIP-46) to interact with a FROSTR signing device. FROSTR is meant to be a drop-in replacement for existing signing devices. Nothing is changed about the user's **nsec**, **npub**, or signatures.
 
 ## Getting Started
 
-If you are new to FROSTR, the best way to get started is by downloading **Igloo** for your desktop of choice. Generate a new **nsec** (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using **frost2x** for browser-based signing (using NIP-07). The steps are as follows:
+If you are new to FROSTR, the best way to get started is by downloading **Igloo** for your desktop of choice. Generate a new **nsec** (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using **frost2x** for signing in the browser. The steps are as follows:
 
 * Download and run the [igloo desktop](https://github.com/FROSTR-ORG/igloo/releases) app from github, for your platform of choice.
 * Download and install the [frost2x extension](https://github.com/FROSTR-ORG/frost2x/releases) from github, or (soon) the chrome web store. 
@@ -61,12 +61,16 @@ Once **igloo** and **frost2x** are configured, visit any NIP-07 enabled nostr we
 
 ## Rotating Shares
 
-If one of your shares is lost or compropmised, you can abandon it by replacing your existing shares with a new set. This renders the compromised share useless. You can generate new sets of shares using your **nsec** (in igloo). There is no limit to how many new sets of shares your **nsec** can generate, so feel free to rotate often! For the truly paranoid, this can be done off-line on an air-gapped device.
+If one of your shares is lost or compropmised, you can abandon it by replacing your existing shares with a new set. This renders the compromised share useless. You can generate a new set of shares using your **nsec** (and igloo). For the truly paranoid, this can be done offline on an air-gapped device.
 
 The rotation process is very simple:
 
 * Re-import your **nsec** into **igloo** and generate a new set of shares.
 * Destroy any existing shares in **igloo** and **frost2x**. Replace them with your new shares.
+
+ There is no limit to how many sets of shares your **nsec** can generate, and each new set is random. Rotate as much as you like.
+
+*Note: when you rotate to a new set, make sure to delete all the shares from the previous set!*
 
 ## Questions / Reporting Issues
 
