@@ -48,7 +48,7 @@ Nostr apps and websites can use existing protocols (NIP-07 and NIP-46) to intera
 
 If you are new to FROSTR, the best way to get started is by downloading **Igloo** for your desktop of choice. Generate a new **nsec** (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using **frost2x** for browser-based signing (using NIP-07). The steps are as follows:
 
-* Download and run the [igloo desktop app](https://github.com/FROSTR-ORG/igloo/releases) from github, for your platform of choice.
+* Download and run the [igloo desktop](https://github.com/FROSTR-ORG/igloo/releases) app from github, for your platform of choice.
 * Download and install the [frost2x extension](https://github.com/FROSTR-ORG/frost2x/releases) from github, or (soon) the chrome web store. 
 * Use Igloo to generate a new **nsec** and 2/3 multi-signature setup (with 3 shares).
 * Load the first share into Igloo, configure your relays, and start the signing server.
