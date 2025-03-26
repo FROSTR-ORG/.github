@@ -27,11 +27,11 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 - **Permafrost** [[link]](https://github.com/FROSTR-ORG/permafrost)  
   Server-based signing device and personal ephemeral relay. Includes a NIP-07 based web portal for managing your server. Options to run as a node service (using bun) or inside a docker environment. WIP.  
 
-- **Frostbite**  
-  (TBA) Mobile signing device and wallet, using NIP-46 remote signing.  
+- **Frostbite** [TBA]  
+  Mobile signing device and wallet, using NIP-46 remote signing.  
 
-- **Heimdall**  
-  (TBA) Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
+- **Heimdall** [TBA]  
+  Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
 
 ## How it Works
 
@@ -48,8 +48,8 @@ Nostr apps and websites can use existing protocols (NIP-07 and NIP-46) to intera
 
 If you are new to FROSTR, the best way to get started is by downloading **Igloo** for your desktop of choice. Generate a new **nsec** (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using **frost2x** for browser-based signing (using NIP-07). The steps are as follows:
 
-* Download and run the [Igloo](https://github.com/FROSTR-ORG/igloo/releases) desktop app from github, for your platform of choice.
-* Download the [frost2x](https://github.com/FROSTR-ORG/frost2x/releases) extension from github, or (soon) the chrome web store. 
+* Download and run the [igloo desktop app](https://github.com/FROSTR-ORG/igloo/releases) from github, for your platform of choice.
+* Download and install the [frost2x extension](https://github.com/FROSTR-ORG/frost2x/releases) from github, or (soon) the chrome web store. 
 * Use Igloo to generate a new **nsec** and 2/3 multi-signature setup (with 3 shares).
 * Load the first share into Igloo, configure your relays, and start the signing server.
 * Import the second share (along with **bfgroup**) into the **frost2x** extension.
