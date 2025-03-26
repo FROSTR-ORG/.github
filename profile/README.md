@@ -13,9 +13,8 @@ This project was originally hacked together for entry in the TABCONF 2024 hack-a
 
 ## Core Architecture
 
-* **Bifrost**  
+* **Bifrost** [(link)](https://github.com/FROSTR-ORG/bifrost)  
   Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic is end-to-end encrypted between nodes.  
-  https://github.com/FROSTR-ORG/bifrost  
 
 ## Signing Clients
 
