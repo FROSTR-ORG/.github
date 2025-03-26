@@ -4,90 +4,85 @@ Simple t-of-n remote signing and key management protocol for nostr, using the po
 
 This project was originally hacked together for entry in the TABCONF 2024 hack-a-thon event.
 
-## Key Features
+## Features
 
-* Break up your secret key into decentralized, distributable shares.
+* Break up an existing secret key or `nsec` into parts, or "shares".
 
-* Sign messages using t-of-n signing devices (multiple devices available).
+* Create any t-of-n multi-signature setup using your shares and signing devices.
 
-* If one share is compromised, your secret key is still safe.
+* If one of your shares is compromised, your secret key is still safe.
 
-* Discard and replace shares without changing your secret key (and identity).
+* Key rotation is simple: Destroy existing shares, replace with a new set.
+
+* Your `npub` does not change. Bring your existing identity to frostr.
+
+* Your signatures do not change. Nobody even knows you are using a multi-sig.
 
 ## Architecture
 
-**Bifrost**: Reference p2p client and implementation of FROSTR protocol.
+**Bifrost:** Reference p2p client and implementation of FROSTR protocol. Each node custodies a share. Uses the nostr network to communicate and coordinate signing. All traffic is end-to-end encrypted between nodes.
 
-## Clients
+## Signing Clients
 
-**Igloo:** Desktop key management app & signing device.  
-**Frost2x:** Browser signing extension (forked from nos2x).  
-**Frostbite:** (TBA) Mobile signing device using NIP-46.  
-**Permafrost:** Reference node application for server environments.  
-**Heimdall:** API gateway and signer for server-less environments.  
+**Igloo:** Desktop-based key management and signing device. Options to import an existing `nsec`, or generate a new one. Allows you to manage and rotate shares, plus recover your `nsec` using shares. Can be used online for remote signing, or off-line for key management only.  
 
-## Dependencies
+**Frost2x:** Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon!  
 
-**Frost:** Core cryptography library that implements FROST primitives.  
-**Nostr-P2P:** Reference node and SDK for communicating peer-to-peer over nostr.
+**Permafrost:** Server-based signing device and personal ephemeral relay. Includes a NIP-07 based web portal for managing your server. Options to run as a node service (using bun) or inside a docker environment. WIP.  
 
-## TODO:
+**Frostbite:** (TBA) Mobile signing device and wallet, using NIP-46 remote signing.  
 
-There are a few things that need to be finished before a version 1.0 release:
-
-* ~~Finish refactoring Bifrost library.~~
-* ~~Add a project kanban board for tracking updates.~~
-* ~~Implement ECDH and signature protocol negotiation.~~
-* ~~Add demo examples and test vectors to Bifrost.~~
-* ~~Launch alpha implementation of frost2x and igloo.~~
-* Finish updating Igloo for release.
-* Finish updating frost2x for release.
-
-The code cleanup is needed in order to graduate this from a hackathon project to a real application.
+**Heimdall:** (TBA) Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
 
 ## How it Works
 
-The protocol uses FROST in order to coordinate the signing of a message between multiple signing devices owned by a single user.
+The protocol uses Shamir Secret Sharing to break up your nsec into "shares", and a hyper-optimized version of FROST to coordinate signing of messages. Each FROSTR signing client contains a `bifrost` node, and can participate in signing rounds with other nodes. Nodes communicate over the nostr network, and all traffic is end-to-end encrypted. The flow of the protocol is relatively simple:
 
-* Website or application makes a request to the user's signing device (to sign a note).
+* Nostr application makes a request to the user's FROSTR signing device.
 
-* User's device makes a signed request to the remote signing device(s).
+* FROSTR device verifies the request, then makes a request for a signature to other nodes (over nostr).
 
-* Each remote device verifies the request, then responds with a partial signature.
+* Other devices / nodes verify the request, then respond with a partial signature.
 
-* User's device verifies each partial signature, then adds their own.
+* User's FROSTR device collects the responses, combines the partial signatures, and returns a completed signature.
 
-* The signatures are combined, and the complete signature is returned to the website / app.
+Nostr apps and websites can use existing protocols (NIP-07 and NIP-46) to interact with FROSTR signing devices. Nothing is changed about the user's `nsec`, `npub`, or signatures.
 
-## Setting up your Devices
+## Getting Started
 
-* Use Igloo to generate a set of FROST shares from your secret key.
+If you are new to FROSTR, the best way to get started is by downloading `Igloo` for your desktop of choice. Generate a new `nsec` (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using `frost2x` for browser-based signing (using NIP-07). The steps are as follows:
 
-* Import a share into Igloo to start the remote signing server.
+* Download and run the [Igloo]() desktop app from github, for your platform of choice.
+* 
+* Download the [frost2x]() extension from github, or (soon) the chrome web store. 
+  
+* Use Igloo to generate a new `nsec` and 2/3 multi-signature setup (with 3 shares).
 
-* Import a share into each of your other devices.
+* Load the first share into Igloo, configure your relays, and start the signing server.
 
-* (optional) store the remaining shares for use in recovery.
+* Import the second share (along with `bfgroup`) into the `frost2x` extension.
 
-## Rotating your Shares
+* (optional) store the last share in a safe place (for use in recovery).
 
-* Re-run the import process using your secret key to generate new shares.
+* (note) make sure `frost2x` is using the same relays as `igloo`.
 
-* Destroy any existing shares, and replace them with your new shares.
+Once `igloo` and `frost2x` are configured, visit any NIP-07 enabled nostr website as usual. The `frost2x` extension will reach out and connect to `igloo` automatically. You should not notice any difference logging in and using nostr clients.
+
+## Rotating Shares
+
+If one of your shares is lost or compropmised, you can abandon it by replacing your existing shares with a new set. This renders the compromised share useless. You can generate new sets of shares using your `nsec` (in igloo). There is no limit to how many new sets of shares your `nsec` can generate, so feel free to rotate often! For the truly paranoid, this can be done off-line on an air-gapped device.
+
+The rotation process is very simple:
+
+* Re-import your `nsec` into `igloo` and generate a new set of shares.
+
+* Destroy any existing shares in `igloo` and `frost2x`. Replace them with your new shares.
+
+## Questions / Reporting Issues
+
+If you run into any bugs or problems using FROSTR, or have any kind of questions, please feel free to submit an issue ticket. Each project has it's own issues page, and our team monitors all of them. We really appreciate your feedback!
 
 ## Resources
-
-**Frost**  
-Multi-platform Typescript FROST Library   
-https://github.com/cmdruid/frost
-
-**Nostr-P2P**  
-Nostr client SDK for creating peer-to-peer protocols.  
-https://github.com/cmdruid/nostr-p2p
-
-**Bifrost**  
-Core library for implementing the FROSTR signing protocol.  
-https://github.com/frostr-org/bifrost
 
 **Igloo**  
 Electron-based key-management app and remote signing server.  
@@ -97,3 +92,14 @@ https://github.com/frostr-org/igloo
 Web extension signing device (fork of nos2x).  
 https://github.com/frostr-org/frost2x
 
+**Bifrost**  
+Core library for implementing the FROSTR signing protocol.  
+https://github.com/frostr-org/bifrost
+
+**Frost**  
+Multi-platform Typescript FROST Library   
+https://github.com/cmdruid/frost
+
+**Nostr-P2P**  
+Nostr client SDK for creating peer-to-peer protocols.  
+https://github.com/cmdruid/nostr-p2p
