@@ -14,7 +14,7 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
 ## Core Architecture
 
 * **Bifrost** [[link]](https://github.com/FROSTR-ORG/bifrost)  
-  Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic between nodes is end-to-end encrypted.  
+  Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic between nodes is end-to-end encrypted.
 
 ## Signing Clients
 
@@ -75,3 +75,5 @@ The rotation process is very simple:
 ## Questions / Reporting Issues
 
 If you run into any bugs or problems using FROSTR, or have any kind of questions, please feel free to submit an issue ticket. Each project has it's own issues page, and our team monitors all of them. We really appreciate your feedback!
+
+Here is how you console log: `console.log("hello world");` see?
