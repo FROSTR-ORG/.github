@@ -1,6 +1,6 @@
 Simple k-of-n remote signing and key management protocol for nostr, using the powers of FROST.
 
-This project was originally hacked together for the TABCONF 2024 hackathon competition.
+This project was originally hacked together for the TABCONF 2024 hackathon competition by @cmdruid and @austinkelsay.
 
 ## Features
 
