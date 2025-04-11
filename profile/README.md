@@ -46,6 +46,11 @@ The protocol uses Shamir Secret Sharing to break up your nsec into "shares", and
 
 Nostr apps can use existing protocols (NIP-07 and NIP-46) to interact with a FROSTR signing device. FROSTR is meant to be a drop-in replacement for existing signing devices. Nothing is changed about the user's **nsec**, **npub**, or signatures.
 
+## Demo Walkthrough
+Demo walkthrough with Austin setting up a basic 2/3 with [igloo desktop](https://github.com/FROSTR-ORG/igloo/releases) and [frost2x extension](https://github.com/FROSTR-ORG/frost2x/releases)
+
+[![Watch the video](https://img.youtube.com/vi/L1bKaX4a5pU/maxresdefault.jpg)](https://www.youtube.com/watch?v=L1bKaX4a5pU)
+
 ## Getting Started
 
 If you are new to FROSTR, the best way to get started is by downloading **Igloo** for your desktop of choice. Generate a new **nsec** (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using **frost2x** for signing in the browser. The steps are as follows:
