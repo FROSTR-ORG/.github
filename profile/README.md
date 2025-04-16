@@ -23,7 +23,8 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
 - **Igloo** [[link]](https://github.com/FROSTR-ORG/igloo)  
   Desktop-based key management and signing device. Options to import an existing **nsec**, or generate a new one. Allows you to manage and rotate shares, plus recover your **nsec** using shares. Can be used online for remote signing, or offline for key management only.  
 
-- **Frost2x** [[link]](https://github.com/FROSTR-ORG/frost2x)  
+- **Frost2x** [[link]](https://github.com/FROSTR-ORG/frost2x)
+[[chrome web store]](https://chromewebstore.google.com/detail/frost2x/gpbndcgoaehgeckcfmmbmaaaeljnaiof)  
   Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon!  
 
 - **Permafrost** [[link]](https://github.com/FROSTR-ORG/permafrost)  
@@ -56,7 +57,7 @@ Demo walkthrough with Austin setting up a basic 2/3 with [igloo desktop](https:/
 If you are new to FROSTR, the best way to get started is by downloading **Igloo** for your desktop of choice. Generate a new **nsec** (for testing), and create a basic 2/3 multi-signature setup. Then you can experiment with using **frost2x** for signing in the browser. The steps are as follows:
 
 * Download and run the [igloo desktop](https://github.com/FROSTR-ORG/igloo/releases) app from github, for your platform of choice.
-* Download and install the [frost2x extension](https://github.com/FROSTR-ORG/frost2x/releases) from github, or (soon) the chrome web store. 
+* Download and install the [frost2x extension](https://github.com/FROSTR-ORG/frost2x/releases) from github, or the [chrome web store](https://chromewebstore.google.com/detail/frost2x/gpbndcgoaehgeckcfmmbmaaaeljnaiof)  
 * Use Igloo to generate a new **nsec** and 2/3 multi-signature setup (with 3 shares).
 * Load the first share into Igloo, configure your relays, and start the signing server.
 * Load the second share (along with **bfgroup**) into the **frost2x** extension.
