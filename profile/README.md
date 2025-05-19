@@ -11,7 +11,7 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
 * Your **npub** does not change. Bring your existing identity to frostr.
 * Your signatures do not change. Nobody even knows you are using a multi-sig.
 
-![frostr-flowchart](https://github.com/user-attachments/assets/247ce22f-fdb6-447e-af5a-96a300b62153)
+![frostr-flowchart](https://github.com/user-attachments/assets/a90b7fb3-0d90-4f92-bfce-ca97da2eb9ea)
 
 ## Core Architecture
 
