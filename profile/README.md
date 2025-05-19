@@ -20,20 +20,20 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
 
 ## Signing Clients
 
-- **Igloo** [[link]](https://github.com/FROSTR-ORG/igloo)  
+- **Igloo Desktop** [[link]](https://github.com/FROSTR-ORG/igloo-desktop)  
   Desktop-based key management and signing device. Options to import an existing **nsec**, or generate a new one. Allows you to manage and rotate shares, plus recover your **nsec** using shares. Can be used online for remote signing, or offline for key management only.  
 
 - **Frost2x** [[link]](https://github.com/FROSTR-ORG/frost2x)
 [[chrome web store]](https://chromewebstore.google.com/detail/frost2x/gpbndcgoaehgeckcfmmbmaaaeljnaiof)  
   Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon!  
 
-- **Permafrost** [[link]](https://github.com/FROSTR-ORG/permafrost)  
+- **Igloo Server** [[link]](https://github.com/FROSTR-ORG/igloo-server)  
   Server-based signing device and personal ephemeral relay. Includes a NIP-07 based web portal for managing your server. Options to run as a node service (using bun) or inside a docker environment. WIP.  
 
-- **Frostbite** [TBA]  
+- **Igloo Mobile** [TBA]  
   Mobile signing device and wallet, using NIP-46 remote signing.  
 
-- **Heimdall** [TBA]  
+- **Igloo Serverless** [TBA]  
   Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
 
 ## How it Works
