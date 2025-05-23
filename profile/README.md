@@ -13,7 +13,7 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
 
 ![frostr-turning-your-nsec-into-a-multisig](https://github.com/user-attachments/assets/205aa271-5ed6-4867-b2e7-d669908528b0)
 
-![frostr-running-signers](https://github.com/user-attachments/assets/ec220c16-28d0-4669-bf8b-6dad06347696)
+![frostr-running-signers](https://github.com/user-attachments/assets/6686cd9f-73ee-40e2-acce-0a9a13121842)
 
 ![frostr-signing-flow](https://github.com/user-attachments/assets/29b52c47-d4da-48f7-9b47-e3e86c785b47)
 
