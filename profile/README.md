@@ -11,9 +11,14 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
 * Your **npub** does not change. Bring your existing identity to frostr.
 * Your signatures do not change. Nobody even knows you are using a multi-sig.
 
-![frostr-signing-demo](https://github.com/user-attachments/assets/6130c9e4-0ecb-4e59-ae86-42b2bd170942)
+![frostr-turning-your-nsec-into-a-multisig](https://github.com/user-attachments/assets/205aa271-5ed6-4867-b2e7-d669908528b0)
+
+![frostr-running-signers](https://github.com/user-attachments/assets/ec220c16-28d0-4669-bf8b-6dad06347696)
+
+![frostr-signing-flow](https://github.com/user-attachments/assets/29b52c47-d4da-48f7-9b47-e3e86c785b47)
 
 ## Core Architecture
+
 
 * **Bifrost** [[link]](https://github.com/FROSTR-ORG/bifrost)  
   Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic between nodes is end-to-end encrypted.
