@@ -11,17 +11,18 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
 * Your **npub** does not change. Bring your existing identity to frostr.
 * Your signatures do not change. Nobody even knows you are using a multi-sig.
 
+#### Turn your nsec into a multisig
 ![frostr-turning-your-nsec-into-a-multisig](https://github.com/user-attachments/assets/9cf23683-e06a-48f5-856f-76b3231f34f5)
 
 ![frostr-running-signers](https://github.com/user-attachments/assets/6686cd9f-73ee-40e2-acce-0a9a13121842)
 
 ![frostr-signing-flow](https://github.com/user-attachments/assets/29b52c47-d4da-48f7-9b47-e3e86c785b47)
 
-## Core Architecture
+![frostr-what-are-signers](https://github.com/user-attachments/assets/385329e4-f99f-480b-ada3-2d73b3511aea)
 
+![frostr-lost-a-key](https://github.com/user-attachments/assets/c14c06e6-e15c-44fa-9d47-b676b5b7553e)
 
-* **Bifrost** [[link]](https://github.com/FROSTR-ORG/bifrost)  
-  Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic between nodes is end-to-end encrypted.
+![frostr-destroy-and-recreate](https://github.com/user-attachments/assets/8bd75d2c-a9d6-4b53-bf59-23da412b0894)
 
 ## Signing Clients
 
@@ -33,13 +34,27 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
   Browser signing extension (forked from nos2x). Works will all existing NIP-07 supporting clients (including encryption). Bitcoin wallet features coming soon!  
 
 - **Igloo Server** [[link]](https://github.com/FROSTR-ORG/igloo-server)  
-  Server-based signing device and personal ephemeral relay. Includes a NIP-07 based web portal for managing your server. Options to run as a node service (using bun) or inside a docker environment. WIP.  
+  Lightweight self-hostable Frostr server & signing client with NIP46 support, Frostr capable API, runs lightweight in 'headless' mode off of single .env or in fully featured 'database' mode with static frontend, sqlite db, and user management.
 
-- **Igloo Mobile** [TBA]  
-  Mobile signing device and wallet, using NIP-46 remote signing.  
+- **Igloo CLI** [[link]](https://github.com/frostr-org/igloo-cli)
+  A simple CLI for interacting with all frostr functionality including keys, signing, peering, and recovery.
 
-- **Igloo Serverless** [TBA]  
-  Server-less API gateway and signing device. Sign using state-less API calls (and running nodes on-demand).  
+- **Igloo Web** [[link]](https://github.com/frostr-org/igloo-web)
+  Browser-first FROSTR signer built with React/Vite. Runs entirely in your tab; your share stays encrypted in localStorage.
+
+- **Igloo Android** [[link]](https://github.com/FROSTR-ORG/igloo-android)
+  A NIP-55 and FROSTR signing device, wrapped in a hybrid android application (coming soon)
+
+## Libraries
+
+* **Bifrost** [[link]](https://github.com/FROSTR-ORG/bifrost)  
+  Reference client implementation of FROSTR protocol. Each client custodies a share and acts as a node within your FROSTR network. Uses nostr relays to communicate peer-to-peer and coordinate signing. All traffic between nodes is end-to-end encrypted.
+
+- **Igloo Core** [[link]](https://github.com/frostr-org/igloo-core)
+  A TypeScript library providing core functionality for FROSTR/Bifrost distributed key management and remote signing. This library abstracts the complexity of threshold signatures and provides a clean, strongly-typed API for building secure distributed applications.
+
+- **nostr-connect** [[link]](https://github.com/frostr-org/nostr-connect)
+  Lightweight opinionated implementation of NIP46 (nostr connect) signing standard
 
 ## How it Works
 
