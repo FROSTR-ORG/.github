@@ -11,7 +11,6 @@ This project was originally hacked together for the TABCONF 2024 hackathon compe
 * Your **npub** does not change. Bring your existing identity to frostr.
 * Your signatures do not change. Nobody even knows you are using a multi-sig.
 
-#### Turn your nsec into a multisig
 ![frostr-turning-your-nsec-into-a-multisig](https://github.com/user-attachments/assets/9cf23683-e06a-48f5-856f-76b3231f34f5)
 
 ![frostr-running-signers](https://github.com/user-attachments/assets/6686cd9f-73ee-40e2-acce-0a9a13121842)
