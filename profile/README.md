@@ -1,3 +1,5 @@
+> **Alpha software:** FROSTR is still alpha software. You should not be using it yet for real keys or production workflows. V2 is coming out soon.
+
 Simple k-of-n remote signing and key management protocol for nostr, using the powers of FROST.
 
 This project was originally hacked together for the TABCONF 2024 hackathon competition by @cmdruid and @austinkelsay.
